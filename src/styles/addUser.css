@@ -1,0 +1,12 @@
+.add__user-button  .button-text {
+    display: inline-block;
+    text-transform: capitalize;
+    font-weight: 200;
+    font-size: 14px;
+    margin: 3px;
+}
+
+.addUser-container {
+    display: inline-block;
+    margin-bottom: 20px;
+}

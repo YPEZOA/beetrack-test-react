@@ -1,0 +1,7 @@
+.main-title {
+    text-align: left;
+}
+
+.main-title > .text-title {
+    margin: 20px;
+}
