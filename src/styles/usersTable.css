@@ -1,0 +1,7 @@
+td > .photo__user {
+    color: #000;
+    margin-top: 2px;
+    width: 130px;
+    height: 115px;
+    border-radius: 100%;
+}

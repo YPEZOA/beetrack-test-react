@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 //assets
 import '../styles/mainPage.css';
 import api_data from '../constants/api_data';
-import getUsers from '../services/getUsers';
+import axios from 'axios';
 //Components
-import AddNewUser from './AddNewUser';
 import Title from './Title';
 import SearchUser from '../components/SearchUser';
 import UsersTable from './UsersTable';
@@ -12,21 +11,16 @@ import UsersTable from './UsersTable';
 class MainPage extends Component {
     constructor() {
         super();
-        this.state = {initialData: null}
+        this.state = { users: [] }
     }
 
     getData = () => {
-        fetch(api_data)
-        .then(res => {
+        axios.get(api_data)
+        .then(res => { 
             console.log(res);
-            return res.json();
-        }).then(data => {
-            const newData = data;
-            console.log(newData);
-            this.setState({
-                initialData: newData
-            })
-        }).catch(err => console.log('This error:', err));
+            this.setState({ users: res.data})
+        })
+        .catch(err => console.log(err))
     }
 
     componentDidMount() {
@@ -34,16 +28,22 @@ class MainPage extends Component {
     }
 
     render() {
+        const { users } = this.state;
         return(
             <div className="main-container">
                 <Title title={'Beetrack'}/>
                 <SearchUser />
-                <AddNewUser/>  
-                <UsersTable 
-                photo={"img"}
-                name={"name"} 
-                description={"description"}
-                />            
+                {[...users].map((data, key) => {
+                    const { photo, name, description } = data;
+                    return (
+                        <UsersTable
+                          photo={photo}
+                          name={name}
+                          description={description}
+                          key={key}
+                        />
+                    )
+                })}
             </div>
         )
     }

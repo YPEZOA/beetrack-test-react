@@ -1,14 +1,5 @@
-const getUsers = users => {
-    const { photo } = users.photo;
-    const { name } = users.name;
-    const { description } = users.description
-
-    const data = {
-        photo,
-        name,
-        description
-    }
-    return data;
+const userData = (users) => {
+  
 }
 
-export default getUsers;
+export default userData;
