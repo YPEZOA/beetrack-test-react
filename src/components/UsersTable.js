@@ -1,28 +1,35 @@
 import React from 'react';
 import '../styles/usersTable.css';
+import User from './User';
 
-const UsersTable = ({ photo, name, description }) => {
-
-    return(
+const UsersTable = ({ data }) => {
+        return (
+                       
         <div className="container-table">
-            <table className="table-striped">
+                <table className="table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
                 <tbody>
-                <tr>
-                    <th>Photo</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                </tr>
-                <tr>
-                    <td><img className="photo__user" alt="user" src={photo}></img></td>
-                    <td>{name}</td>
-                    <td>{description}</td>
-                </tr>
+                    { data.map( users => {
+                        const { photo, name, description, id } = users;
+                        return(
+                            <User
+                            photo={photo}
+                            name={name}
+                            description={description}
+                            key={id}
+                            />
+                        )
+                    }) 
+                }
                 </tbody>
             </table>
-            
-            
-        </div>
-    )
+        </div>  
+        )
 }
 
 export default UsersTable;

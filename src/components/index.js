@@ -6,12 +6,14 @@ import axios from 'axios';
 //Components
 import Title from './Title';
 import SearchUser from '../components/SearchUser';
+import AddNewUser from '../components/AddNewUser';
 import UsersTable from './UsersTable';
 
 class MainPage extends Component {
     constructor() {
         super();
         this.state = { users: [] }
+
     }
 
     getData = () => {
@@ -33,17 +35,8 @@ class MainPage extends Component {
             <div className="main-container">
                 <Title title={'Beetrack'}/>
                 <SearchUser />
-                {[...users].map((data, key) => {
-                    const { photo, name, description } = data;
-                    return (
-                        <UsersTable
-                          photo={photo}
-                          name={name}
-                          description={description}
-                          key={key}
-                        />
-                    )
-                })}
+                <AddNewUser/>     
+                <UsersTable data={users}/>
             </div>
         )
     }

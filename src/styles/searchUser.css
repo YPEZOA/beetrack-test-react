@@ -2,3 +2,7 @@
     width: 20%; 
     display: inline-block;
 }
+
+div > .input-search {
+    background-color: #f2f2f2;
+}

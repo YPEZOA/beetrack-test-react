@@ -1,6 +1,7 @@
 import React from 'react';
 //assets
 import '../styles/searchUser.css';
+
 const SearchUser = () => {
     return(
         <div className="search-container">

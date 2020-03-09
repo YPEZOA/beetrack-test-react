@@ -1,7 +1,10 @@
-td > .photo__user {
-    color: #000;
-    margin-top: 2px;
-    width: 130px;
-    height: 115px;
-    border-radius: 100%;
+
+.table-bordered > thead > tr > th{
+    width: 15em;
 }
+
+.table-bordered {
+    background-color: #f2f2f2;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.281);
+}
+
