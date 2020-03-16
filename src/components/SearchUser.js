@@ -3,6 +3,7 @@ import React from 'react';
 import '../styles/searchUser.css';
 
 const SearchUser = () => {
+
     return(
         <div className="search-container">
             <input className="input-search" type="text" placeholder="Buscar usuario..."/>

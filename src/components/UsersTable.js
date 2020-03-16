@@ -2,9 +2,10 @@ import React from 'react';
 import '../styles/usersTable.css';
 import User from './User';
 
+//esta props llamada data se paso desde el componente padre
 const UsersTable = ({ data }) => {
         return (
-                       
+
         <div className="container-table">
                 <table className="table-bordered">
                 <thead>
@@ -24,12 +25,12 @@ const UsersTable = ({ data }) => {
                             key={id}
                             />
                         )
-                    }) 
+                    })
                 }
                 </tbody>
             </table>
         </div>  
-        )
+    )
 }
 
 export default UsersTable;

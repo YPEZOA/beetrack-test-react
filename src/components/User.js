@@ -1,11 +1,13 @@
 import React from 'react';
 import '../styles/user.css';
 
-const User = ({ photo, name, description }) => {
+const User = ({ photo, name, description }) => {  
+
     return (
         <tr>
             <td className="user-container">
                 <img src={photo} alt="userPhoto"></img>
+                <small>Eliminar</small>
                 <span>{name}</span>
             </td>
             <td>
