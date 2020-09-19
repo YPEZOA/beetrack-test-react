@@ -19,6 +19,7 @@ const UsersTable = ({ data }) => {
                         const { photo, name, description, id } = users;
                         return(
                             <User
+                            id={id}
                             photo={photo}
                             name={name}
                             description={description}

@@ -22,3 +22,9 @@
 .formTitle{
     text-align: left;
 }
+
+.fieldsValue {
+    color: red;
+    font-size: 15px;
+    text-align: center;
+}

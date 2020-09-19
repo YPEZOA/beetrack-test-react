@@ -23,14 +23,24 @@ class MyModal extends Component{
       .catch(err => console.log(err))
    }
 
-   validateInfo(dataUser) {
+   validateInfo(dataUser, event) {
       //Data for user
       const data = {
          photo: dataUser[0],
          name: dataUser[1],
          description: dataUser[2]
       }
-      return this.registerUser(data)
+
+      const { name, description } = data;
+      const fieldError = document.querySelector(".fieldsValue");
+
+      if(!name.length || !description.length) {
+         fieldError.hidden = false;
+         event.preventDefault();
+      } else {
+         fieldError.hidden = true;
+         return this.registerUser(data)
+      }
    }
    
    handleSubmit(e) {
@@ -38,9 +48,8 @@ class MyModal extends Component{
       const inputVal = document.querySelectorAll(".form-group > .form-control");
       const data = [];
       [...inputVal].map(res => data.push(res.value));
-         alert(data)
+      console.log(data);
       return this.validateInfo(data, e)
-      
    }
 
    render() {
@@ -61,7 +70,7 @@ class MyModal extends Component{
                 <div className="form-group">
                     <label>Descripción</label>
                     <textarea className="form-control" rows="3"></textarea>
-                    <span className="fieldsValue" hidden>Debes llenar este campo</span>
+                    <span className="fieldsValue" hidden>Ingresa los campos requeridos</span>
                 </div>
                <div className="container-button"><button onClick={e => this.handleSubmit(e)} type="submit" className="btn btn-warning">Guardar</button></div>
             </form>
