@@ -7,7 +7,6 @@ const User = ({ photo, name, description }) => {
         <tr>
             <td className="user-container">
                 <img src={photo} alt="userPhoto"></img>
-                <small>Eliminar</small>
                 <span>{name}</span>
             </td>
             <td>

@@ -4,9 +4,43 @@ import { Modal,Effect} from 'react-dynamic-modal';
 import '../styles/modal.css';
  
 class MyModal extends Component{
-    
-   handleSubmit = () => {
-        
+
+   registerUser(user){
+      const endPoint = "http://localhost:3001/api/users";
+      const dataBody = JSON.stringify(user);
+
+      fetch(endPoint, {
+         method: 'POST',
+         body: dataBody,
+         headers: {
+            'Content-type':'application/json'
+         }
+      }).then(res => res.json())
+      .then(res => {
+         console.log('response', res);
+         window.location.reload();
+      })
+      .catch(err => console.log(err))
+   }
+
+   validateInfo(dataUser) {
+      //Data for user
+      const data = {
+         photo: dataUser[0],
+         name: dataUser[1],
+         description: dataUser[2]
+      }
+      return this.registerUser(data)
+   }
+   
+   handleSubmit(e) {
+      //Take all elements from form inputs
+      const inputVal = document.querySelectorAll(".form-group > .form-control");
+      const data = [];
+      [...inputVal].map(res => data.push(res.value));
+         alert(data)
+      return this.validateInfo(data, e)
+      
    }
 
    render() {
@@ -26,9 +60,10 @@ class MyModal extends Component{
                 </div>
                 <div className="form-group">
                     <label>Descripción</label>
-                    <p><textarea className="form-control" rows="3"></textarea></p>
+                    <textarea className="form-control" rows="3"></textarea>
+                    <span className="fieldsValue" hidden>Debes llenar este campo</span>
                 </div>
-               <div className="container-button"><button type="submit" className="btn btn-warning">Guardar</button></div>
+               <div className="container-button"><button onClick={e => this.handleSubmit(e)} type="submit" className="btn btn-warning">Guardar</button></div>
             </form>
          </Modal>
       );

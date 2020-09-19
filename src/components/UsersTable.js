@@ -10,8 +10,8 @@ const UsersTable = ({ data }) => {
                 <table className="table-bordered">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Description</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
                     </tr>
                 </thead>
                 <tbody>

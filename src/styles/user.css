@@ -15,3 +15,7 @@ img {
 .user-container {
     height: 130px;
 }
+
+.user-container:hover {
+    
+}
